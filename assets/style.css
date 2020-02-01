@@ -1,0 +1,43 @@
+/**
+ * PMPro RH Admin Styles
+ *
+ * @package pmprorha
+ */
+.button-danger {
+	color: #a10000 !important;
+	border-color: #a10000 !important;
+	background: #f6f3f3 !important;
+	vertical-align: top;
+}
+
+.button-danger:hover,
+.button-danger:focus {
+	color: #fff !important;
+	border-color: #a10000 !important;
+	background: #a10000 !important;
+}
+
+.flex-row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	margin: 0 -10px;
+}
+
+@media (max-width: 1240px) {
+
+	.flex-row {
+		display: block;
+	}
+}
+
+.flex-col {
+	padding: 0 10px;
+}
+
+@media (max-width: 1240px) {
+
+	.flex-col {
+		margin-top: 20px;
+	}
+}

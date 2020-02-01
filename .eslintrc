@@ -1,0 +1,13 @@
+{
+	"extends": [ "plugin:@wordpress/eslint-plugin/es5" ],
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"comma-dangle": [2, "never"]
+	},
+	"globals": {
+		"$": "writable",
+		"jQuery": "readonly"
+	}
+}
