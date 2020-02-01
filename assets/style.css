@@ -24,7 +24,7 @@
 	margin: 0 -10px;
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1000px) {
 
 	.flex-row {
 		display: block;
@@ -35,9 +35,13 @@
 	padding: 0 10px;
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1000px) {
 
 	.flex-col {
 		margin-top: 20px;
 	}
+}
+
+.regular-text {
+	max-width: 100%;
 }
