@@ -2,9 +2,9 @@
 Contributors: travisaaronwagner
 Donate link: https://example.com/
 Tags: comments, spam
-Requires at least: 1.0.0
-Tested up to: 1.0.0
-Stable tag: 1.0.0
+Requires at least: 1.1.0
+Tested up to: 1.1.0
+Stable tag: 1.1.0
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
