@@ -55,14 +55,13 @@ class Register_Helper_Admin {
 		global $pagenow;
 		global $wpdb;
 		$this->table_name = $wpdb->prefix . 'pmpro_custom_account_fields';
-		$param_page       = filter_input( INPUT_GET, 'page' );
-
+		$param_page       = filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING );
 		add_action( 'admin_menu', array( $this, 'admin_page' ) );
 		add_action( 'init', array( $this, 'register_pmpro_fields' ) );
 		if ( 'admin.php' === $pagenow && 'pmpro-registration-fields' === $param_page ) {
+			add_action( 'init', array( $this, 'maybe_create_table' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_page_enqueue' ) );
 			add_action( 'admin_notices', array( $this, 'display_notice' ) );
-			add_action( 'init', array( $this, 'maybe_create_table' ) );
 			add_filter( 'admin_footer_text', array( $this, 'change_footer_text' ) );
 		}
 	}
@@ -141,8 +140,8 @@ class Register_Helper_Admin {
 	 */
 	public function add_field_to_db() {
 		global $wpdb;
-		$nonce = filter_input( INPUT_GET, '_wpnonce' );
-		if ( ! wp_verify_nonce( $nonce, 'taw_pmpro_add_field_nonce' ) ) {
+		$nonce = filter_input( INPUT_GET, '_wpnonce', FILTER_SANITIZE_STRING );
+		if ( ! wp_verify_nonce( $nonce, 'pmprorha_add_field_nonce' ) ) {
 			die( 'Security check' );
 		}
 		$field_id          = isset( $_POST['field_text_id'] ) ? filter_input( INPUT_POST, 'field_text_id' ) : '';
@@ -215,7 +214,7 @@ class Register_Helper_Admin {
 		$result = false;
 		if ( isset( $_POST['add_pmpro_field_submit'] ) ) {
 			$nonce = filter_input( INPUT_GET, '_wpnonce' );
-			if ( ! wp_verify_nonce( $nonce, 'taw_pmpro_add_field_nonce' ) ) {
+			if ( ! wp_verify_nonce( $nonce, 'pmprorha_add_field_nonce' ) ) {
 				die( 'Security check' );
 			}
 			$result  = $this->add_field_to_db();
@@ -226,7 +225,7 @@ class Register_Helper_Admin {
 		}
 		if ( isset( $_POST['delete_pmpro_form_field'] ) ) {
 			$nonce = filter_input( INPUT_GET, '_wpnonce' );
-			if ( ! wp_verify_nonce( $nonce, 'taw_pmpro_delete_field_nonce' ) ) {
+			if ( ! wp_verify_nonce( $nonce, 'pmprorha_delete_field_nonce' ) ) {
 				die( 'Security check' );
 			}
 			$result  = $this->delete_field_from_db( filter_input( INPUT_POST, 'delete_pmpro_form_field' ) );
@@ -258,7 +257,7 @@ class Register_Helper_Admin {
 	 * @return void
 	 */
 	public function admin_page() {
-		add_submenu_page( 'pmpro-dashboard', 'Registration Fields', 'Registration Fields', 'pmpro_dashboard', 'pmpro-registration-fields', array( $this, 'admin_page_markup' ) );
+		add_submenu_page( 'pmpro-dashboard', 'Register Helper', 'Register Helper', 'pmpro_dashboard', 'pmpro-registration-fields', array( $this, 'admin_page_markup' ), 6 );
 	}
 
 	/**
@@ -271,13 +270,13 @@ class Register_Helper_Admin {
 		ob_start();
 		?>
 		<div class="wrap">
-			<h1 class="wp-heading-inline">Registration Custom Fields</h1>
+			<h1 class="wp-heading-inline">Register Helper</h1>
 			<div class="flex-row">
 				<div class="flex-col">
-					<?php $nonce = wp_create_nonce( 'taw_pmpro_add_field_nonce' ); ?>
+					<?php $nonce = wp_create_nonce( 'pmprorha_add_field_nonce' ); ?>
 					<form action="?page=pmpro-registration-fields&_wpnonce=<?php echo esc_attr( $nonce ); ?>" method="post" class="card">
-						<h2>Add Field to Account Registration</h2>
-						<p><em>Entering a field with an ID/Name that already exists will update that field.</em></p>
+						<h2>Add Field</h2>
+						<p><em>Adds a field to membership checkout. Entering a field with an ID/Name that already exists will update that field.</em></p>
 						<table class="form-table">
 							<tr>
 								<th><label for="field_type_select">Type</label></th>
@@ -374,7 +373,7 @@ class Register_Helper_Admin {
 								<?php echo esc_html( $field['name'] ); ?>
 								</td>
 								<td style="text-align: center;">
-									<?php $nonce = wp_create_nonce( 'taw_pmpro_delete_field_nonce' ); ?>
+									<?php $nonce = wp_create_nonce( 'pmprorha_delete_field_nonce' ); ?>
 									<form action="?page=pmpro-registration-fields&_wpnonce=<?php echo esc_attr( $nonce ); ?>" method="post">
 										<button type="submit" value="<?php echo esc_attr( $field['name'] ); ?>" name="delete_pmpro_form_field" id="delete_<?php echo esc_attr( $field['name'] ); ?>" class="button button-danger">Delete</button>
 									</form>
