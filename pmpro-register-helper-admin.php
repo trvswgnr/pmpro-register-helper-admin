@@ -6,7 +6,7 @@
  * Version: 1.0.0
  * Author: Travis Aaron Wagner
  * Author URI: https://travisaw.com
- * Text Domain: pmpro-register-helper-admin
+ * Text Domain: pmprorha
  *
  * @package pmprorha
  */
@@ -21,3 +21,13 @@ define( 'PMPRORHA_DIR', dirname( __FILE__ ) );
 require_once PMPRORHA_DIR . '/classes/class-register-helper-admin.php';
 
 $pmpro_register_helper_admin = new PMPro\Register_Helper_Admin();
+
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/trvswgnr/pmpro-register-helper-admin/',
+	__FILE__,
+	'pmpro-register-helper-admin'
+);
+
+// set the branch that contains the stable release.
+$myUpdateChecker->setBranch( 'master' );
