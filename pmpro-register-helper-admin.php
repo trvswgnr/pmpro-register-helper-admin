@@ -11,6 +11,11 @@
  * @package pmprorha
  */
 
+// prevent direct access.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 define( 'PMPRORHA_DIR', dirname( __FILE__ ) );
 
 require_once PMPRORHA_DIR . '/classes/class-register-helper-admin.php';
