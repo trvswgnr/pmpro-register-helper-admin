@@ -2,6 +2,7 @@
  * PMPro RH Admin JS
  *
  * @package pmprorha
+ * @since 1.0.0
  */
 ( function( $ ) {
 	$( '#field_type_select' ).change( function() {
