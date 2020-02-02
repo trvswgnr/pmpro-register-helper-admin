@@ -32,7 +32,7 @@ Coming soon.
 
 == Changelog ==
 
-= 1.1.1 =
+= 1.1.3 =
 * Update file structure, check for updates automatically.
 
 = 1.1.1 =
