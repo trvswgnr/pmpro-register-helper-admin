@@ -3,6 +3,7 @@
  * PMPro Register Helper Admin
  *
  * @package pmprorha
+ * @since 1.0.0
  */
 
 namespace PMPro;
