@@ -397,7 +397,7 @@ class Register_Helper_Admin {
 	public function admin_page_enqueue() {
 		wp_enqueue_script(
 			'pmprorhadmin-js',
-			plugins_url( '/assets/index.js', dirname( __FILE__ ) ),
+			plugins_url( '/index.js', dirname( __FILE__ ) ),
 			array( 'jquery' ),
 			'1.0.0',
 			true
@@ -405,7 +405,7 @@ class Register_Helper_Admin {
 
 		wp_enqueue_style(
 			'pmprorhadmin',
-			plugins_url( '/assets/style.css', dirname( __FILE__ ) ),
+			plugins_url( '/style.css', dirname( __FILE__ ) ),
 			array(),
 			'1.0,0',
 			'all'
