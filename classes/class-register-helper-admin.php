@@ -151,8 +151,7 @@ class Register_Helper_Admin {
 		$field_on_profile  = ! empty( $_POST['field_on_profile'] ) ? true : false;
 		$field_type        = filter_input( INPUT_POST, 'field_type_select' );
 		$field_location    = filter_input( INPUT_POST, 'field_location_select' );
-		$field_options     = 'select' === $field_type ? array( '' => 'Select ' . $field_label ) : array();
-		$field_options     = ! empty( $_POST['field_select_options'] ) ? array_merge( $field_options, explode( "\n", filter_input( INPUT_POST, 'field_select_options' ) ) ) : false;
+		$field_options     = ! empty( $_POST['field_select_options'] ) ? explode( "\n", filter_input( INPUT_POST, 'field_select_options' ) ) : false;
 		$field_attr        = array(
 			'label'    => $field_label,
 			'profile'  => $field_on_profile,
@@ -168,7 +167,11 @@ class Register_Helper_Admin {
 		);
 
 		if ( in_array( $field_type, $show_options, true ) ) {
-			$field_attr['options'] = $field_options;
+			$arr = 'select' === $field_type ? array( '' => 'Select ' . $field_label ) : array();
+			foreach ( $field_options as $option ) {
+				$arr[ $option ] = $option;
+			}
+			$field_attr['options'] = $arr;
 		}
 
 		$field_attr_json = wp_json_encode( $field_attr );
