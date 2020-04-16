@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Paid Memberships Pro - Register Helper Admin
+ * Plugin Name: PM Pro - Register Helper Admin
  * Plugin URI: https://github.com/trvswgnr/pmpro-register-helper-admin.git
- * Description: Add PMPro fields to checkout and user profile from the admin panel (used with Paid Memberships Pro Register Helper Add On).
+ * Description: Add PMPro fields to checkout and user profile from the admin panel (used with PMs Pro Register Helper Add On).
  * Version: 1.1.3
  * Author: Travis Aaron Wagner
  * Author URI: https://travisaw.com

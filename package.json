@@ -1,7 +1,7 @@
 {
 	"name": "pmpro-register-helper-admin",
 	"version": "1.1.3",
-	"description": "Admin page for Paid Membership Pro Register Helper",
+	"description": "Admin page for PM Pro Register Helper",
 	"author": "Travis Aaron Wagner",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
@@ -9,7 +9,7 @@
 		"Member",
 		"Membership",
 		"Pro",
-		"Paid Membership Pro",
+		"PM Pro",
 		"PMPro",
 		"Register Helper",
 		"Custom Fields"
