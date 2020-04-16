@@ -1,4 +1,4 @@
-=== Paid Membership Pro - Register Helper Admin ===
+=== PM Pro - Register Helper Admin ===
 Contributors: travisaaronwagner
 Donate link: https://example.com/
 Tags: admin, fields, paid member pro
@@ -9,11 +9,11 @@ Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Creates a user-friendly interface for the Paid Membership Pro Register Helper Add On.
+Creates a user-friendly interface for the PM Pro Register Helper Add On.
 
 == Description ==
 
-This plugin creates a user-friendly interface for the Paid Membership Pro Register Helper Add On. It adds a page to the Paid Membership Pro plugin in the WordPress admin that allows admins to easily create fields which are added to the Membership Checkout and User Profile.
+This plugin creates a user-friendly interface for the PM Pro Register Helper Add On. It adds a page to the PM Pro plugin in the WordPress admin that allows admins to easily create fields which are added to the Membership Checkout and User Profile.
 
 == Installation ==
 
