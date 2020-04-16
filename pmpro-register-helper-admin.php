@@ -18,6 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once 'classes/class-register-helper-admin.php';
+require_once 'class-register-helper-admin.php';
 
 $pmpro_register_helper_admin = new PMPro\Register_Helper_Admin();
